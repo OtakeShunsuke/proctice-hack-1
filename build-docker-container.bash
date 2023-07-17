@@ -4,3 +4,4 @@ docker-compose run --rm frontend sh -c "npm install -g create-react-app && creat
 cd ..
 docker-compose down
 docker-compose build --no-cache
+echo 1
