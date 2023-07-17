@@ -21,3 +21,4 @@ services:
     command: sh -c "cd /usr/src/app/frontend && yarn start"
     ports:
       - "3000:3000"
+    stdin_open: true 
