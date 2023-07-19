@@ -1,6 +1,17 @@
 version: '3'
 
 services:
+  frontend:
+    build:
+      context: ./frontend_Project
+      dockerfile: docker/node/Dockerfile
+    volumes:
+      - ./frontend_Project/node/frontend:/usr/src/app/frontend
+    command: sh -c "cd /usr/src/app/frontend && yarn start"
+    ports:
+      - "3000:3000"
+    stdin_open: true 
+    
   backend:
     build:
       context: ./backend_Project
@@ -12,13 +23,4 @@ services:
       - "8000:8000"
     tty: true
 
-  frontend:
-    build:
-      context: ./frontend_Project
-      dockerfile: docker/node/Dockerfile
-    volumes:
-      - ./frontend_Project/node/frontend:/usr/src/app/frontend
-    command: sh -c "cd /usr/src/app/frontend && yarn start"
-    ports:
-      - "3000:3000"
-    stdin_open: true 
+  
